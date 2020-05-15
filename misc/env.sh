@@ -22,10 +22,11 @@ r() {
 # macos
 if [[ "$(uname)" == "Darwin" ]]; then
     alias sed=gsed
-    alias md5sum=md
+    alias md5sum=md5
     alias ll="ls -ltr"
     alias l="ls -ltr"
     export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+    alias fullpath='greadlink -f'
 fi
 
 # go
