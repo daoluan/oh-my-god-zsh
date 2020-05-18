@@ -10,6 +10,8 @@ alias cm="make clean; make"
 alias cm8="make clean; make -j 8"
 alias mc="make clean"
 alias m6="make -j6"
+
+# python
 alias python="python3"
 
 # vim
