@@ -1,6 +1,11 @@
 #!/bin/bash
 
+# searchtext, text count around searchtext, file
 function egrep_sth() {
+    if [ "$#" -ne 1 ]; then
+        echo "error: $0 searchtext 3 file"
+        return
+    fi
     egrep  ".{0,$2}$1.{0,$2}" $3 -Rso  -r --color=always
 }
 
