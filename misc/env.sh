@@ -18,10 +18,13 @@ alias m6="make -j6"
 
 # python
 alias python="python3"
+srcenv="source env/bin/activate"
+alias pyenv=$srcenv
 
 # vim
 alias vi='vim'
 alias fullpath='readlink -f'
+export EDITOR=vim
 
 r() {
     python x.py
@@ -38,8 +41,16 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 # go
-export PATH=$PATH:$GOPATH/bin
 export GOPROXY=https://goproxy.io
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/code/go/
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 # autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh  ]] && source ~/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
+
+alias stsu="supervisorctl status"
+
+# other
+export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
