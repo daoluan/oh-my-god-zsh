@@ -96,3 +96,8 @@ if [[ "$(uname)" == "Linux" ]]; then
         supervisorctl restart "${proarr[$idx]}"
     }
 fi
+
+# git
+if hash tig 2>/dev/null; then
+    alias ts="tig status"
+fi
