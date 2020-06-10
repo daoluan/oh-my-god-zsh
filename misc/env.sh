@@ -47,7 +47,6 @@ export GOPATH=$HOME/code/go/
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 # autojump
-[ -d ~/.autojump ] || git clone https://github.com/wting/autojump.git ~/.autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh  ]] && source ~/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
@@ -55,9 +54,6 @@ alias stsu="supervisorctl status"
 
 # other
 export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
-
-[ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ] || git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-[ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # zsh
 ZSH_THEME="ys"
