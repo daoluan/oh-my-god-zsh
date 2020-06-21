@@ -46,10 +46,6 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/code/go/
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
-# autojump
-[[ -s ~/.autojump/etc/profile.d/autojump.sh  ]] && source ~/.autojump/etc/profile.d/autojump.sh
-autoload -U compinit && compinit -u
-
 alias stsu="supervisorctl status"
 
 # other
@@ -66,6 +62,10 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# autojump
+[[ -s ~/.autojump/etc/profile.d/autojump.sh  ]] && source ~/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
 
 # zsh plugins
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
@@ -109,3 +109,9 @@ fi
 if hash tig 2>/dev/null; then
     alias ts="tig status"
 fi
+
+# hook cd and auto source pyenv
+cd() {
+   builtin cd "$@"
+   [ -d env ] && echo 'source pyenv' && pyenv
+}
