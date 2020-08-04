@@ -1,5 +1,7 @@
 #!/bin/bash
 
+local ROOTDIR=$( dirname $( dirname "$0" ))
+
 # searchtext, text count around searchtext, file
 function egrep_sth() {
     if [ "$#" -ne 1 ]; then
@@ -108,6 +110,7 @@ fi
 # git
 if hash tig 2>/dev/null; then
     alias ts="tig status"
+    alias tc="tig ./"
 fi
 
 # hook cd and auto source pyenv
@@ -115,3 +118,6 @@ cd() {
    builtin cd "$@"
    [ -d env ] && echo 'source pyenv' && pyenv
 }
+
+export PATH=$PATH:$ROOTDIR/tools/$(uname)/bin
+export PATH=$PATH:$ROOTDIR/tools/Share/bin

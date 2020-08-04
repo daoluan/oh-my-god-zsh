@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "vim $0"
+# user@x.x.x.x -p port|desc
+ips=("user@x.x.x.x -p port|desc")
+ipscnt=${#ips[@]}
+let ipscnt=$ipscnt-1
+for i in $(seq 0 $ipscnt)
+do
+    echo "$i: "${ips[$i]}
+done
+read idx
+IFS='|' read -ra arr <<< "${ips[$idx]}"
+
+printf "logining \e[93m${arr[0]}\033[0m\n"
+ssh ${arr[0]}
