@@ -17,6 +17,7 @@ alias cm="make clean; make"
 alias cm8="make clean; make -j 8"
 alias mc="make clean"
 alias m6="make -j6"
+alias cma="cmake ."
 
 # python
 alias python="python3"
@@ -40,6 +41,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     alias l="ls -ltr"
     export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
     alias fullpath='greadlink -f'
+    export HOMEBREW_NO_AUTO_UPDATE=1
 fi
 
 # go
