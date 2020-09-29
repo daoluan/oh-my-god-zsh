@@ -48,7 +48,7 @@ fi
 export GOPROXY=https://goproxy.io
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/code/go/
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:/usr/local/bin/
 
 alias stsu="supervisorctl status"
 
@@ -66,6 +66,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+zstyle ':completion:*:(cd|cat|vim|grep|awk|tail|head):*' file-sort modification
 
 # autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh  ]] && source ~/.autojump/etc/profile.d/autojump.sh
@@ -110,7 +112,8 @@ if [[ "$(uname)" == "Linux" ]]; then
 fi
 
 # git
-if hash tig 2>/dev/null; then
+if command -v tig &> /dev/null
+then
     alias ts="tig status"
     alias tc="tig ./"
 fi
