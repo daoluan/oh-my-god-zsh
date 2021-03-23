@@ -116,6 +116,7 @@ if command -v tig &> /dev/null
 then
     alias ts="tig status"
     alias tc="tig ./"
+    alias gitdiff="git diff --no-index"
 fi
 
 # hook cd and auto source pyenv
