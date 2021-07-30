@@ -2,6 +2,18 @@
 
 local ROOTDIR=$( dirname $( dirname "$0" ))
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+warning() {
+    echo -e $RED$1 $NC
+}
+
+succ() {
+    echo -e $GREEN$1 $NC
+}
+
 # searchtext, text count around searchtext, file
 function egrep_sth() {
     if [ "$#" -ne 1 ]; then
@@ -78,6 +90,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
 # supervisor
 if [[ "$(uname)" == "Linux" ]]; then
+    # restart
     resu () {
         Color_Off='\033[0m'       # Text Reset
         Green='\033[0;32m'        # Green
