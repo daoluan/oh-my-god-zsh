@@ -123,3 +123,5 @@ cd() {
 
 export PATH=$PATH:$ROOTDIR/tools/$(uname)/bin
 export PATH=$PATH:$ROOTDIR/tools/Share/bin
+
+zstyle ':completion:*:(cd|cat|vim|grep|awk|tail|head|md5sum):*' file-sort modification
