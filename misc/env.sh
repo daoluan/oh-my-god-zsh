@@ -127,6 +127,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 fi
 
 # git
+cp $ROOTDIR/tools/Linux/tig /usr/local/bin/
 if command -v tig &> /dev/null
 then
     alias ts="tig status"
