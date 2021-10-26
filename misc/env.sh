@@ -145,3 +145,13 @@ export PATH=$PATH:$ROOTDIR/tools/$(uname)/bin
 export PATH=$PATH:$ROOTDIR/tools/Share/bin
 
 zstyle ':completion:*:(cd|cat|vim|grep|awk|tail|head|md5sum):*' file-sort modification
+
+if ! grep 'hide-status' ~/.zshrc > /dev/null; then
+    echo 'add hide-status in gitconfig'
+    git config --global --add oh-my-zsh.hide-status 1
+fi
+
+if ! grep 'hide-dirty' ~/.zshrc > /dev/null; then
+    echo 'add hide-dirty gitconfig'
+    git config --global --add oh-my-zsh.hide-dirty 1
+fi
