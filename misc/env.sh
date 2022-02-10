@@ -124,10 +124,10 @@ if [[ "$(uname)" == "Linux" ]]; then
         echo ${proarr[$i]}
         supervisorctl restart "${proarr[$idx]}"
     }
+    cp $ROOTDIR/tools/Linux/tig /usr/local/bin/
 fi
 
 # git
-cp $ROOTDIR/tools/Linux/tig /usr/local/bin/
 if command -v tig &> /dev/null
 then
     alias ts="tig status"
