@@ -156,3 +156,5 @@ if ! grep 'hide-dirty' ~/.zshrc > /dev/null; then
     echo 'add hide-dirty gitconfig'
     git config --global --add oh-my-zsh.hide-dirty 1
 fi
+
+alias dl='dlogin'
