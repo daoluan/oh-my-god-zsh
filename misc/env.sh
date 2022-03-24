@@ -41,6 +41,9 @@ alias vi='vim'
 alias fullpath='readlink -f'
 export EDITOR=vim
 
+# misc
+alias cal="cal -B 4 -A 4"
+
 r() {
     python x.py
 }
@@ -54,7 +57,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
     export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
     alias fullpath='greadlink -f'
     export HOMEBREW_NO_AUTO_UPDATE=1
-    alias cal="cal -B 4 -A 4"
 
     ulimit -n 4096
 fi
@@ -147,12 +149,12 @@ export PATH=$PATH:$ROOTDIR/tools/Share/bin
 
 zstyle ':completion:*:(cd|cat|vim|grep|awk|tail|head|md5sum):*' file-sort modification
 
-if ! grep 'hide-status' ~/.zshrc > /dev/null; then
+if ! grep 'hide-status' ~/.gitconfig > /dev/null; then
     echo 'add hide-status in gitconfig'
     git config --global --add oh-my-zsh.hide-status 1
 fi
 
-if ! grep 'hide-dirty' ~/.zshrc > /dev/null; then
+if ! grep 'hide-dirty' ~/.gitconfig > /dev/null; then
     echo 'add hide-dirty gitconfig'
     git config --global --add oh-my-zsh.hide-dirty 1
 fi
