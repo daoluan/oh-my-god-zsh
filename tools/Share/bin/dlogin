@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "vim $0"
+echo "input e to edit login config"
 # user@x.x.x.x -p port|desc
 ips=("user@x.x.x.x -p port|desc")
 ipscnt=${#ips[@]}
@@ -9,7 +10,11 @@ do
     echo "$i: "${ips[$i]}
 done
 read idx
-IFS='|' read -ra arr <<< "${ips[$idx]}"
-
-printf "logining \e[93m${arr[0]}\033[0m\n"
-ssh ${arr[0]}
+if [[ $idx == "e" ]]; then
+    vim ~/oh-my-god-zsh/tools/Share/bin/dlogin
+else
+    IFS='|' read -ra arr <<< "${ips[$idx]}"
+    
+    printf "logining \e[93m${arr[0]}\033[0m\n"
+    ssh ${arr[0]}
+fi

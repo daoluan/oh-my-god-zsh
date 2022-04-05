@@ -160,3 +160,6 @@ if ! grep 'hide-dirty' ~/.gitconfig > /dev/null; then
 fi
 
 alias dl='dlogin'
+
+# k8s
+alias k='kubectl'
