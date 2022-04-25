@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export LANG=en_US.UTF-8
+
 local ROOTDIR=$( dirname $( dirname "$0" ))
 
 RED='\033[0;31m'
@@ -135,6 +137,7 @@ if command -v tig &> /dev/null
 then
     alias ts="tig status"
     alias tc="tig ./"
+    alias tl="tig log"
     alias gitdiff="git diff --no-index"
 fi
 
