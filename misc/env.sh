@@ -140,6 +140,8 @@ then
     alias tc="tig ./"
     alias tl="tig log"
     alias gitdiff="git diff --no-index"
+    git config --global alias.st status
+    git config --global alias.co checkout
 fi
 
 # hook cd and auto source pyenv
