@@ -169,3 +169,6 @@ alias dl='dlogin'
 
 # k8s
 alias k='kubectl'
+
+# docker
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
