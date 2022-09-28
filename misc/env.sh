@@ -57,6 +57,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     alias m5=md5
     alias ll="ls -ltr"
     alias l="ls -ltr"
+    alias free="top -l 1 -s 0 | grep PhysMem"
     export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
     alias fullpath='greadlink -f'
     export HOMEBREW_NO_AUTO_UPDATE=1
