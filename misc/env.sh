@@ -144,6 +144,7 @@ then
     git config --global alias.st status
     git config --global alias.co checkout
 fi
+git config --global push.default current
 
 # hook cd and auto source pyenv
 cd() {
