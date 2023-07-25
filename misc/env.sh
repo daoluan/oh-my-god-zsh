@@ -143,6 +143,7 @@ then
     alias gitdiff="git diff --no-index"
     git config --global alias.st status
     git config --global alias.co checkout
+    if [ ! -e ~/.tigrc ]; then echo 'set ignore-case = yes\nset ignore-space = yes' >> ~/.tigrc; fi;
 fi
 git config --global push.default current
 
@@ -174,3 +175,5 @@ alias k='kubectl'
 
 # docker
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+export PATH=$PATH:/Users/dylanzheng/code/go/bin
