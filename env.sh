@@ -9,4 +9,10 @@ do
     echo "${Green}sourcing $ef${Color_Off}"
     source $ef
 done
+
+if [[ "$(uname)" == "Darwin" ]]; then
+    alias grep="/opt/homebrew/bin/ggrep"
+fi
+
 echo "Enjoy!"
+
