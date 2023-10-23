@@ -63,6 +63,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     export HOMEBREW_NO_AUTO_UPDATE=1
 
     ulimit -n 4096
+    alias grep=/opt/homebrew/bin/ggrep
 fi
 
 # go
@@ -146,6 +147,10 @@ then
     if [ ! -e ~/.tigrc ]; then echo 'set ignore-case = yes\nset ignore-space = yes' >> ~/.tigrc; fi;
 fi
 git config --global push.default current
+# in oh-my-zsh git plugin: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
+# alias gcn!='git commit --verbose --no-edit --amend'
+# alias gpf!='git push --force'
+alias gcngpf='git status -u no; git commit --verbose --no-edit --amend && git push --force'
 
 # hook cd and auto source pyenv
 cd() {
