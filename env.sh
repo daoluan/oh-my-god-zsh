@@ -1,5 +1,3 @@
-#!/bin/bash
-
 Green='\033[0;32m'
 Color_Off='\033[0m'
 
@@ -15,4 +13,3 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 echo "Enjoy!"
-

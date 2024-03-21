@@ -1,5 +1,3 @@
-#!/bin/bash
-
 export LANG=en_US.UTF-8
 
 local ROOTDIR=$( dirname $( dirname "$0" ))
@@ -50,24 +48,8 @@ r() {
     python x.py
 }
 
-# macos
-if [[ "$(uname)" == "Darwin" ]]; then
-    alias sed=gsed
-    alias md5sum=md5
-    alias m5=md5
-    alias ll="ls -ltr"
-    alias l="ls -ltr"
-    alias free="top -l 1 -s 0 | grep PhysMem"
-    export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-    alias fullpath='greadlink -f'
-    export HOMEBREW_NO_AUTO_UPDATE=1
-
-    ulimit -n 4096
-    alias grep=/opt/homebrew/bin/ggrep
-fi
-
 # go
-export GOPROXY=https://goproxy.io
+# export GOPROXY=https://goproxy.io
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/code/go/
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:/usr/local/bin/
@@ -182,3 +164,22 @@ alias k='kubectl'
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 export PATH=$PATH:/Users/dylanzheng/code/go/bin
+
+# 一到最后，放到中间无法生效？？？
+# macos
+if [[ "$(uname)" == "Darwin" ]]; then
+    alias sed=gsed
+    alias md5sum=md5
+    alias m5=md5
+    alias ll="ls -altr"
+    alias l="ls -altr"
+    alias free="top -l 1 -s 0 | grep PhysMem"
+    export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+    alias fullpath='greadlink -f'
+    export HOMEBREW_NO_AUTO_UPDATE=1
+
+    ulimit -n 4096
+    alias grep=/opt/homebrew/bin/ggrep
+fi
+
+
