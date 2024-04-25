@@ -183,4 +183,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
     alias grep=/opt/homebrew/bin/ggrep
 fi
 
+function sortdiff() {
+    diff -c <(sort "$1") <(sort "$2")
+}
 
+function onlydiff() {
+    diff "${@:3}" <(sort "$1") <(sort "$2")
+}
