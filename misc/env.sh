@@ -115,7 +115,7 @@ if [[ "$(uname)" == "Linux" ]]; then
         echo ${proarr[$i]}
         supervisorctl restart "${proarr[$idx]}"
     }
-    cp $ROOTDIR/tools/Linux/tig /usr/local/bin/
+    cp -f $ROOTDIR/tools/Linux/tig /usr/local/bin/
 fi
 
 # git
