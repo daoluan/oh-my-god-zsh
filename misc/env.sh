@@ -127,7 +127,7 @@ then
     alias gitdiff="git diff --no-index"
     git config --global alias.st status
     git config --global alias.co checkout
-    if [ ! -e ~/.tigrc ]; then echo 'set ignore-case = yes\nset ignore-space = yes' >> ~/.tigrc; fi;
+    # if [ ! -e ~/.tigrc ]; then echo 'set ignore-case = yes\nset ignore-space = yes\nset main-view-id-display = yes' >> ~/.tigrc; fi;
 fi
 git config --global push.default current
 # in oh-my-zsh git plugin: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh

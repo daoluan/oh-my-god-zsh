@@ -1,2 +1,3 @@
 set ignore-case = yes
 set ignore-space = yes
+set main-view-id-display = yes
