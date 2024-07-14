@@ -190,3 +190,26 @@ function sortdiff() {
 function onlydiff() {
     diff "${@:3}" <(sort "$1") <(sort "$2")
 }
+
+kill_process_by_command() {
+    if [ $# -eq 0 ]; then
+        echo "Error: No command pattern specified. Usage: kill_process_by_command \"pattern\""
+        return 1
+    fi
+
+    exit 0
+
+    # $1 是你想要查找和杀死的命令或命令的一部分
+    local command_pattern="$1"
+    local running_processes=$(ps -ef | grep -iE "$command_pattern" | grep -v grep)
+
+    if [ -n "$running_processes" ]; then
+        echo "$running_processes" | awk '{ print $2 }' | xargs -I{} sh -c 'echo killing {}; kill -9 {}'
+        if pgrep -f "$command_pattern" > /dev/null; then
+            echo "Some processes did not terminate gracefully, sending SIGKILL..."
+            kill -9 $pids  # 如果还有进程存活，发送 SIGKILL
+        fi
+    else
+        echo "No running process found matching '$command_pattern'"
+    fi
+}
