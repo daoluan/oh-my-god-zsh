@@ -197,8 +197,6 @@ kill_process_by_command() {
         return 1
     fi
 
-    exit 0
-
     # $1 是你想要查找和杀死的命令或命令的一部分
     local command_pattern="$1"
     local running_processes=$(ps -ef | grep -iE "$command_pattern" | grep -v grep)
