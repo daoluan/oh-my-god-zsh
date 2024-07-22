@@ -34,7 +34,7 @@ alias cma="cmake ."
 
 # python
 alias python="python3"
-srcenv="source env/bin/activate"
+srcenv="source .venv/bin/activate"
 alias pyenv=$srcenv
 
 # vim
@@ -138,7 +138,7 @@ alias gcngpf='git status -u no; git commit --verbose --no-edit --amend && git pu
 # hook cd and auto source pyenv
 cd() {
    builtin cd "$@"
-   [ -d env ] && echo 'source pyenv' && pyenv
+   [ -d .venv ] && echo 'source pyenv' && pyenv
 }
 
 export PATH=$PATH:$ROOTDIR/tools/$(uname)/bin
