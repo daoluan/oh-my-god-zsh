@@ -181,6 +181,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
     ulimit -n 4096
     alias grep=/opt/homebrew/bin/ggrep
+
+    export HOMEBREW_NO_AUTO_UPDATE=1
 fi
 
 function sortdiff() {
