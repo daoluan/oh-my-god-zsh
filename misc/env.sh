@@ -37,6 +37,7 @@ alias python="python3"
 srcenv="source .venv/bin/activate"
 alias pyenv=$srcenv
 alias py="python"
+alias pipfreeze="pip3 freeze > requirements.txt"
 
 # vim
 alias vi='vim'
@@ -45,6 +46,7 @@ export EDITOR=vim
 
 # misc
 alias cal="cal -B 4 -A 4"
+alias c='mpstat 1'
 
 r() {
   python x.py
