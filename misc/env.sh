@@ -47,6 +47,7 @@ export EDITOR=vim
 # misc
 alias cal="cal -B 4 -A 4"
 alias c='mpstat 1'
+alias f="find ./ -name"
 
 r() {
   python x.py
