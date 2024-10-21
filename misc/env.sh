@@ -47,7 +47,49 @@ export EDITOR=vim
 # misc
 alias cal="cal -B 4 -A 4"
 alias c='mpstat 1'
-alias f="find ./ -name"
+# alias f="find ./ -name"
+
+ft() {
+    # 第一个参数为搜索模式
+    search_pattern="$1"
+
+    # 检查是否提供了搜索模式
+    if [ -z "$search_pattern" ]; then
+        echo "请提供要搜索的模式"
+        return 1
+    fi
+
+    # 如果第二个参数为空或不是目录，默认搜索当前目录
+    if [ -z "$2" ] || [ ! -d "$2" ]; then
+        search_dir="."
+    else
+        search_dir="$2"
+    fi
+
+    # 使用 grep 进行递归搜索，"$@" 将把其余的参数传递给 grep
+    grep -nir "$search_pattern" "$search_dir"
+}
+
+
+f() {
+    # 检测第一个参数是否为目录
+    if [ -d "$1" ]; then
+        search_dir="$1"
+        shift  # 移除第一个参数（目录），保留后续的模糊匹配参数
+    else
+        echo 'Search current directory'
+        search_dir="."  # 如果第一个参数不是目录，默认使用当前目录
+    fi
+
+    # 检查是否提供了模糊匹配参数
+    if [ -z "$1" ]; then
+        echo "请提供要模糊匹配的文件名"
+        return 1
+    fi
+
+    # 使用 find 命令进行模糊匹配
+    find "$search_dir" -type f -name "*$1*"
+}
 
 r() {
   python x.py
