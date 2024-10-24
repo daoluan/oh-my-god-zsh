@@ -49,7 +49,7 @@ alias cal="cal -B 4 -A 4"
 alias c='mpstat 1'
 # alias f="find ./ -name"
 
-ft() {
+findtext() {
     # 第一个参数为搜索模式
     search_pattern="$1"
 
@@ -69,7 +69,6 @@ ft() {
     # 使用 grep 进行递归搜索，"$@" 将把其余的参数传递给 grep
     grep -nir "$search_pattern" "$search_dir"
 }
-
 
 f() {
     # 检测第一个参数是否为目录
