@@ -37,7 +37,7 @@ alias python="python3"
 srcenv="source .venv/bin/activate"
 alias pyenv=$srcenv
 alias py="python"
-alias pipfreeze="pip3 freeze > requirements.txt"
+alias pipfreeze="pipreqs --force ./"
 
 # vim
 alias vi='vim'
