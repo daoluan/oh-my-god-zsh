@@ -158,6 +158,7 @@ if [[ "$(uname)" == "Linux" ]]; then
     printf "staring \e[93m${proarr[$idx]}\033[0m\n"
     echo ${proarr[$i]}
     supervisorctl restart "${proarr[$idx]}"
+    export PATH=$PATH:/usr/local/bin
   }
   cp -f $ROOTDIR/tools/Linux/tig /usr/local/bin/
 fi
