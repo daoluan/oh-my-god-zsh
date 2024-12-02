@@ -49,6 +49,12 @@ alias cal="cal -B 4 -A 4"
 alias c='mpstat 1'
 alias p='ps -ef | grep -i'
 # alias f="find ./ -name"
+alias l='ls -Alrt'
+alias ll='ls -Alrt'
+alias jp='json_pp'
+alias w1='watch -c -n1'
+alias w3='watch -c -n3'
+alias c='mpstat 1'
 
 findtext() {
     # 第一个参数为搜索模式
@@ -217,8 +223,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias sed=gsed
   alias md5sum=md5
   alias m5=md5
-  alias ll="ls -altr"
-  alias l="ls -altr"
   alias free="top -l 1 -s 0 | grep PhysMem"
   export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
   alias fullpath='greadlink -f'
