@@ -31,7 +31,6 @@ alias mc="make clean"
 alias m6="make -j6"
 alias m8="make -j8"
 alias cma="cmake ."
-alias s='md5sum'
 
 # python
 alias python="python3"
@@ -56,6 +55,8 @@ alias jp='json_pp'
 alias w1='watch -c -n1'
 alias w3='watch -c -n3'
 alias c='mpstat 1'
+alias s='md5sum'
+alias t='top -c'
 
 findtext() {
     # 第一个参数为搜索模式
@@ -96,6 +97,10 @@ f() {
 
     # 使用 find 命令进行模糊匹配
     find "$search_dir" -type f -name "*$1*"
+}
+
+function findlatestgrep() {
+    find . -type f -mmin -$1 | xargs -I{} sh -c "echo Handling {}; grep \"$2\" {}"
 }
 
 r() {
