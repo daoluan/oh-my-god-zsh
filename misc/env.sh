@@ -31,6 +31,7 @@ alias mc="make clean"
 alias m6="make -j6"
 alias m8="make -j8"
 alias cma="cmake ."
+alias s='md5sum'
 
 # python
 alias python="python3"
