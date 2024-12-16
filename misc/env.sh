@@ -248,6 +248,10 @@ function onlydiff() {
   diff "${@:3}" <(sort "$1") <(sort "$2")
 }
 
+function textsub() {
+    comm -23 <(sort "$1") <(sort "$2")
+}
+
 kill_process_by_command() {
   if [ $# -eq 0 ]; then
     echo "Error: No command pattern specified. Usage: kill_process_by_command \"pattern\""
