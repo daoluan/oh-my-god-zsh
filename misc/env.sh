@@ -96,7 +96,7 @@ f() {
     fi
 
     # 使用 find 命令进行模糊匹配
-    find "$search_dir" -type f -name "*$1*"
+    find "$search_dir" -type f -iname "*$1*"
 }
 
 function findlatestgrep() {
