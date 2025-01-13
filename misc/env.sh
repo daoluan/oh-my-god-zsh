@@ -279,3 +279,6 @@ if command -v tmux &>/dev/null; then
   alias tmls='tmux ls'
   alias tmnew='tmux new -s'
 fi
+
+alias l='ls -Alrt'
+alias ll='ls -Alrt'
