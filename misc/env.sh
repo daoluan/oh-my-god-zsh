@@ -96,7 +96,7 @@ f() {
     fi
 
     # 使用 find 命令进行模糊匹配
-    find "$search_dir" -type f -iname "*$1*"
+    find "$search_dir" -iname "*$1*"
 }
 
 function findlatestgrep() {
@@ -182,6 +182,7 @@ if command -v tig &>/dev/null; then
   alias tc="tig ./"
   alias tl="tig log"
   alias gitdiff="git diff --no-index"
+  git config --global log.date format:"%Y-%m-%d %H:%M:%S"
   git config --global alias.st status
   git config --global alias.co checkout
   # if [ ! -e ~/.tigrc ]; then echo 'set ignore-case = yes\nset ignore-space = yes\nset main-view-id-display = yes' >> ~/.tigrc; fi;
