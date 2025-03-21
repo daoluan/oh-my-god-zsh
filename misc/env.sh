@@ -103,8 +103,30 @@ function findlatestgrep() {
     find . -type f -mmin -$1 | xargs -I{} sh -c "echo Handling {}; grep \"$2\" {}"
 }
 
+spwarning() {
+    timestamp=$(date +"%Y-%m-%d %H:%M:%S") # 获取当前时间
+    echo -e "${YELLOW}$timestamp${NOCOLOR} ${RED}$1${NOCOLOR}"
+}
+
+spsucc() {
+    timestamp=$(date +"%Y-%m-%d %H:%M:%S") # 获取当前时间
+    echo -e "${YELLOW}$timestamp${NOCOLOR} ${GREEN}$1${NOCOLOR}"
+}
+
 r() {
-  python x.py
+  spwarning "x.py or main.go or vite.config.js"
+  # python
+  if [ -f x.py ]; then
+    python x.py
+  # go
+  elif [ -f main.go ]; then
+    go run main.go
+  # vite.config.js
+  elif [ -f vite.config.js ]; then
+    npm run dev
+  else
+    spwarning "x.py or main.go or index.html not found"
+  fi
 }
 
 # go
