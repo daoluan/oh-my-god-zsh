@@ -214,6 +214,7 @@ git config --global push.default current
 # alias gcn!='git commit --verbose --no-edit --amend'
 # alias gpf!='git push --force'
 alias gcngpf='git status -u no; git commit --verbose --no-edit --amend && git push --force'
+alias shortcommit='git rev-parse --short HEAD'
 
 # hook cd and auto source pyenv
 cd() {
