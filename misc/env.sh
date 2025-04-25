@@ -91,11 +91,11 @@ f() {
 
     # 检查是否提供了模糊匹配参数
     if [ -z "$1" ]; then
-        echo "请提供要模糊匹配的文件名"
-        return 1
+        echo "第一个参数为目录，如有需要，提供要模糊匹配的文件名"
     fi
 
     # 使用 find 命令进行模糊匹配
+    echo find "$search_dir" -iname "*$1*"
     find "$search_dir" -iname "*$1*"
 }
 
@@ -306,3 +306,4 @@ fi
 
 alias l='ls -Alrt'
 alias ll='ls -Alrt'
+alias g='grep -i'
