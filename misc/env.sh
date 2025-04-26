@@ -143,20 +143,26 @@ export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 # zsh
 ZSH_THEME="ys"
 
-plugins=(
-  git
-  extract
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+if [ -z "$ZSH_PLUGINS_LOADED" ]; then
+  plugins=(
+    git
+    extract
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+  )
+  export ZSH_PLUGINS_LOADED=1
+fi
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion:*:(cd|cat|vim|grep|awk|tail|head):*' file-sort modification
 
 # autojump
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
-autoload -U compinit && compinit -u
+# init autojump if AUTOJUMP_SOURCED is not set
+if [ -z "$AUTOJUMP_SOURCED" ]; then
+  [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+  autoload -U compinit && compinit -u
+fi
 
 # zsh plugins
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
