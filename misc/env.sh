@@ -153,7 +153,7 @@ if [ -z "$ZSH_PLUGINS_LOADED" ]; then
   export ZSH_PLUGINS_LOADED=1
 fi
 
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion:*:(cd|cat|vim|grep|awk|tail|head):*' file-sort modification
 
