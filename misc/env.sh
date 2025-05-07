@@ -279,7 +279,11 @@ function onlydiff() {
 }
 
 function textsub() {
-    comm -23 <(sort "$1") <(sort "$2")
+  comm -23 <(sort "$1") <(sort "$2")
+}
+
+function textcomm() {
+  comm -12 <(sort "$1") <(sort "$2")
 }
 
 kill_process_by_command() {
