@@ -80,6 +80,8 @@ findtext() {
     grep -nir "$search_pattern" "$search_dir"
 }
 
+alias ft="findtext"
+
 f() {
     # 检测第一个参数是否为目录
     if [ -d "$1" ]; then
