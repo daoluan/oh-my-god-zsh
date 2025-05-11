@@ -58,6 +58,8 @@ alias w3='watch -c -n3'
 alias c='mpstat 1'
 alias s='md5sum'
 alias t='top -c'
+alias t10='tail -n 10'
+alias t100='tail -n 1000'
 
 findtext() {
     # 第一个参数为搜索模式
