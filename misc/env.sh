@@ -35,7 +35,7 @@ alias cma="cmake ."
 # python
 alias python="python3"
 srcenv="source .venv/bin/activate"
-alias pyenv=$srcenv
+# alias pyenv=$srcenv
 alias py="python"
 alias pipfreeze="pipreqs --force ./"
 alias venv="python -m venv .venv; source .venv/bin/activate"
