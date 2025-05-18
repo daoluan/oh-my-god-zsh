@@ -106,6 +106,52 @@ function findlatestgrep() {
     find . -type f -mmin -$1 | xargs -I{} sh -c "echo Handling {}; grep \"$2\" {}"
 }
 
+function lmf() {
+    if [ -z "$1" ]; then echo $(ls -t $1 | head -n 1); return; fi
+    echo $1/$(ls -t $1 | head -n 1)
+}
+
+function greplmf () {
+    grep -i "$1" $(lmf "$2")
+}
+
+function taillmf () {
+    tail -f  $(lmf "$2")  | grep -i "$1" --color=always --line-buffered
+}
+
+function vimlmf() {
+   vim $(lmf "$1")
+}
+
+function lmfgrep () {
+    greplmf   "$1" "$2"
+}
+
+function lmftail () {
+    taillmf "$1" "$2"
+}
+
+function lmfvim() {
+   vimlmf "$1"  "$2"
+}
+
+function omf() {
+    if [ -z "$1" ]; then
+        echo $(ls -tr | head -n 1)
+    else
+        echo "$1/$(ls -tr "$1" | head -n 1)"
+    fi
+}
+
+function omfgrep () {
+    grep -i "$1" $(omf "$2")
+}
+
+function omfvim() {
+   vim $(omf "$1")
+}
+
+
 spwarning() {
     timestamp=$(date +"%Y-%m-%d %H:%M:%S") # 获取当前时间
     echo -e "${YELLOW}$timestamp${NOCOLOR} ${RED}$1${NOCOLOR}"
