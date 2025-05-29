@@ -27,9 +27,11 @@ function egrep_sth() {
 alias m="if [ -f makefile -o -f Makefile ]; then echo 'make'; make; else echo -e '\033[34mmay be no makefile; go building \033[0m'; go build; fi;"
 alias cm="make clean; make"
 alias cm8="make clean; make -j 8"
+alias cm12="make clean; make -j 12"
 alias mc="make clean"
 alias m6="make -j6"
 alias m8="make -j8"
+alias m12="make -j12"
 alias cma="cmake ."
 
 # python
