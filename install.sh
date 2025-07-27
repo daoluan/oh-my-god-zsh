@@ -7,7 +7,7 @@ fi
 # echo multi line to .zshrc
 cat <<EOF >> ~/.zshrc
 source ~/oh-my-god-zsh/env.sh
-if [ -f ~/.mybashrc ];
+if [ -f ~/.mybashrc ]; then
     source ~/.mybashrc
 fi
 EOF
