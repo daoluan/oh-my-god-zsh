@@ -35,7 +35,7 @@ alias cma="cmake ."
 # python
 alias python="python3"
 srcenv="source .venv/bin/activate"
-# alias pyenv=$srcenv
+alias pyenv=$srcenv
 alias py="python"
 alias pipfreeze="pipreqs --force ./"
 alias venv="python -m venv .venv; source .venv/bin/activate"
@@ -274,7 +274,7 @@ alias shortcommit='git rev-parse --short HEAD'
 # hook cd and auto source pyenv
 cd() {
   builtin cd "$@"
-  [ -d .venv ] && echo 'source pyenv' && pyenv
+  [ -d .venv ] && echo 'source .venv' && pyenv
 }
 
 export PATH=$PATH:$ROOTDIR/tools/$(uname)/bin
@@ -366,3 +366,13 @@ fi
 alias l='ls -Alrt'
 alias ll='ls -Alrt'
 alias g='grep -i'
+
+# video/audio
+ffplaycmp() {
+  ffplay -f lavfi -i "
+    movie=$1 [vid1];
+    movie=$2 [vid2];
+    [vid2] scale=320:-1 [vid2s];
+    [vid1] [vid2s] overlay=main_w-overlay_w:main_h-overlay_h
+"
+}
