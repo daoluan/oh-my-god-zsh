@@ -101,7 +101,8 @@ f() {
 
     # 使用 find 命令进行模糊匹配
     echo find "$search_dir" -iname "*$1*"
-    find "$search_dir" -iname "*$1*"
+    # find "$search_dir" -iname "*$1*"
+    find "$search_dir" -iname "*$1*" -exec realpath {} \;
 }
 
 function findlatestgrep() {
