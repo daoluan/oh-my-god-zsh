@@ -21,5 +21,5 @@ cp rc/.tigrc ~/
 # vscode/cursor repeate keypress
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-
-
+mkdir -p ~/.pip
+cp rc/pip.conf ~/.pip/pip.conf
