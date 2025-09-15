@@ -36,7 +36,7 @@ alias cma="cmake ."
 
 # python
 alias python="python3"
-srcenv="source .venv/bin/activate"
+alias srcenv="source .venv/bin/activate"
 alias pyenv=$srcenv
 alias py="python"
 alias pipfreeze="pipreqs --force ./"
@@ -277,7 +277,7 @@ alias shortcommit='git rev-parse --short HEAD'
 # hook cd and auto source pyenv
 cd() {
   builtin cd "$@"
-  [ -d .venv ] && echo 'source .venv' && pyenv
+  [ -d .venv ] && echo 'source .venv' && srcenv
 }
 
 export PATH=$PATH:$ROOTDIR/tools/$(uname)/bin
