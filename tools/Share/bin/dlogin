@@ -1,8 +1,14 @@
 #!/bin/bash
 echo "vim $0"
 echo "input e to edit login config"
+
 # user@x.x.x.x -p port|desc
 ips=("user@x.x.x.x -p port|desc")
+
+if [ -f ~/oh-my-god-zsh/tools/Share/bin/dlogin.local ]; then
+    source ~/oh-my-god-zsh/tools/Share/bin/dlogin.local
+fi
+
 ipscnt=${#ips[@]}
 let ipscnt=$ipscnt-1
 for i in $(seq 0 $ipscnt)
@@ -11,10 +17,10 @@ do
 done
 read idx
 if [[ $idx == "e" ]]; then
-    vim ~/oh-my-god-zsh/tools/Share/bin/dlogin
+    vim ~/oh-my-god-zsh/tools/Share/bin/dlogin.local
 else
     IFS='|' read -ra arr <<< "${ips[$idx]}"
-    
+
     printf "logining \e[93m${arr[0]}\033[0m\n"
     ssh ${arr[0]}
 fi
