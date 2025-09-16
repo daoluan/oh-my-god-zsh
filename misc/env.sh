@@ -379,3 +379,78 @@ ffplaycmp() {
     [vid1] [vid2s] overlay=main_w-overlay_w:main_h-overlay_h
 "
 }
+
+# Column data sum function
+colsum() {
+  if [ $# -eq 0 ] || [ $# -gt 2 ]; then
+    echo "Usage: colsum <file> [column_number]"
+    echo "Example: colsum data.txt  # sum all columns from file"
+    echo "         colsum data.txt 2  # sum column 2 from file"
+    return 1
+  fi
+
+  local file=$1
+  local col_num=$2
+
+  if [ -z "$col_num" ]; then
+    # Only file specified, sum all columns
+    awk '{
+      for (i = 1; i <= NF; i++) {
+        sum[i] += $i
+      }
+    }
+    END {
+      for (i = 1; i <= NF; i++) {
+        printf "Column %d: %d\n", i, sum[i]
+      }
+    }' "$file"
+  else
+    # File and column number specified
+    awk -v col="$col_num" '{sum += $col} END {print sum}' "$file"
+  fi
+}
+
+# Column data difference function
+coldiff() {
+  if [ $# -eq 0 ] || [ $# -gt 2 ]; then
+    echo "Usage: coldiff <file> [column_number]"
+    echo "Example: coldiff data.txt  # calculate difference with previous row for all columns from file"
+    echo "         coldiff data.txt 2  # calculate difference with previous row for column 2 from file"
+    return 1
+  fi
+
+  local file=$1
+  local col_num=$2
+
+  if [ -z "$col_num" ]; then
+    # Only file specified, calculate difference for all columns
+    awk '
+    NR == 1 {
+      for (i = 1; i <= NF; i++) {
+        prev[i] = $i
+        printf "Column %d: 0\n", i
+      }
+      next
+    }
+    {
+      for (i = 1; i <= NF; i++) {
+        diff = $i - prev[i]
+        printf "Column %d: %d\n", i, diff
+        prev[i] = $i
+      }
+    }' "$file"
+  else
+    # File and column number specified
+    awk -v col="$col_num" '
+      NR == 1 {
+        prev = $col;
+        print "0";
+        next
+      }
+      {
+        diff = $col - prev;
+        print diff;
+        prev = $col
+      }' "$file"
+  fi
+}
