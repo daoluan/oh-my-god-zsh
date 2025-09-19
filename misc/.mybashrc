@@ -1,7 +1,3 @@
-echo "set completion-ignore-case On" >> ~/.inputrc
-
-cat << 'EOF' > ~/.mybashrc
-
 # script begin
 alias l='ls -Alrt'
 alias ll='ls -Alrt'
@@ -196,23 +192,3 @@ function myupload {
 function mydownload {
     bin=$1; (printf "%-128s" $bin; cat $bin) | nc  30.47.8.191 8998 >> $bin; md5sum $bin
 }
-
-EOF
-
-
-cat << 'EOF' >> ~/.bashrc
-if [[ $SUDO_USER == "dylanzheng" || $TST_HACK_BASH_SESSION_NAME == "dylanzheng" || $LOGNAME == "dylanzheng" ]]; then
-    source ~/.mybashrc
-fi
-EOF
-
-
-echo "set ignorecase" >> ~/.vimrc
-
-source ~/.bashrc
-bind -f ~/.inputrc
-
-clear
-
-echo 'Done'
-
