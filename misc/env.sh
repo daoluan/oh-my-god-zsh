@@ -273,6 +273,7 @@ git config --global push.default current
 # alias gpf!='git push --force'
 alias gcngpf='git status -u no; git commit --verbose --no-edit --amend && git push --force'
 alias shortcommit='git rev-parse --short HEAD'
+alias git='LANG=en_US.UTF-8 git' # keep git output in english
 
 # hook cd and auto source pyenv
 cd() {
