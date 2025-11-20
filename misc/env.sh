@@ -59,6 +59,7 @@ alias w1='watch -c -n1'
 alias w3='watch -c -n3'
 alias c='mpstat 1'
 alias s='md5sum'
+alias s='strings'
 alias t='top -c'
 alias t10='tail -n 10'
 alias t100='tail -n 1000'
@@ -369,7 +370,7 @@ fi
 
 alias l='ls -Alrt'
 alias ll='ls -Alrt'
-alias g='grep -i'
+alias g='grep -nir'
 
 # video/audio
 ffplaycmp() {
