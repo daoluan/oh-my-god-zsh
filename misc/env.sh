@@ -275,6 +275,8 @@ git config --global push.default current
 alias gcngpf='git status -u no; git commit --verbose --no-edit --amend && git push --force'
 alias shortcommit='git rev-parse --short HEAD'
 alias git='LANG=en_US.UTF-8 git' # keep git output in english
+# tencent gongfeng
+unalias gf
 
 # hook cd and auto source pyenv
 cd() {
