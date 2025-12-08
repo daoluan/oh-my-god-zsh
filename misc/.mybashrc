@@ -53,8 +53,8 @@ findtext() {
     grep -nir "$search_pattern" "$search_dir"
 }
 
-
 f() {
+    # 检测第一个参数是否为目录
     if [ -d "$1" ]; then
         search_dir="$1"
         shift  # 移除第一个参数（目录），保留后续的模糊匹配参数
@@ -63,13 +63,17 @@ f() {
         search_dir="."  # 如果第一个参数不是目录，默认使用当前目录
     fi
 
+    # 检查是否提供了模糊匹配参数
     if [ -z "$1" ]; then
-        echo "please input search file pattern"
-        return 1
+        echo "第一个参数为目录，如有需要，提供要模糊匹配的文件名"
     fi
 
-    find "$search_dir" -iname "*$1*"
+    # 使用 find 命令进行模糊匹配
+    echo find "$search_dir" -iname "*$1*"
+    # find "$search_dir" -iname "*$1*"
+    find "$search_dir" -iname "*$1*" -exec realpath {} \;
 }
+
 
 function lmf() {
     if [ -z "$1" ]; then echo $(ls -t . | head -n 1); return; fi

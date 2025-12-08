@@ -20,4 +20,3 @@ bind -f ~/.inputrc
 clear
 
 echo 'Done'
-
