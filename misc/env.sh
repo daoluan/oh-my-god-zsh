@@ -276,6 +276,7 @@ alias gcngpf='git status -u no; git commit --verbose --no-edit --amend && git pu
 alias shortcommit='git rev-parse --short HEAD'
 alias git='LANG=en_US.UTF-8 git' # keep git output in english
 alias ab='git branch --sort=-committerdate -a'
+alias gbl='tig blame'
 # tencent gongfeng
 unalias gf
 
