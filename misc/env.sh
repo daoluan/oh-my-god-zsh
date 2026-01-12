@@ -372,6 +372,12 @@ if command -v tmux &>/dev/null; then
   alias tmnew='tmux new -s'
 fi
 
+if [[ -n "$TMUX" ]]; then
+    export IGNOREEOF=1
+    setopt IGNORE_EOF
+fi
+# tmux end
+
 alias l='ls -Alrt'
 alias ll='ls -Alrt'
 alias g='grep -nir'
