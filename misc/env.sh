@@ -91,7 +91,7 @@ f() {
         search_dir="$1"
         shift  # 移除第一个参数（目录），保留后续的模糊匹配参数
     else
-        echo 'Search current directory'
+        if [ -t 1 ]; then echo 'Search current directory'; fi
         search_dir="."  # 如果第一个参数不是目录，默认使用当前目录
     fi
 
@@ -101,7 +101,7 @@ f() {
     fi
 
     # 使用 find 命令进行模糊匹配
-    echo find "$search_dir" -iname "*$1*"
+    if [ -t 1 ]; then echo find "$search_dir" -iname "*$1*"; fi
     # find "$search_dir" -iname "*$1*"
     find "$search_dir" -iname "*$1*" -exec realpath {} \;
 }
