@@ -4,6 +4,7 @@ set main-view-id-display = yes
 set main-view-date = custom
 set main-view-date-local = true
 set main-view-date-format = "%F %R"
+set diff-context = 5
 
 # Vim-style keybindings for Tig
 #
@@ -81,3 +82,4 @@ bind generic ca !?@git commit --amend --no-edit
 
 bind generic K view-help
 bind generic <C-w><C-w> view-next
+
