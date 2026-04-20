@@ -1,5 +1,12 @@
 export LANG=en_US.UTF-8
 
+if [[ -n "$CURSOR_AGENT" ]] || [[ "$TERM" == "dumb" ]]; then
+  # 只保留最基础的 PATH 保证命令能运行
+  export PATH=$PATH:/usr/local/bin
+  export NOTLOADZSHRC=1
+  return
+fi
+
 local ROOTDIR=$(dirname $(dirname "$0"))
 
 RED='\033[0;31m'
@@ -58,8 +65,15 @@ alias jp='json_pp'
 alias w1='watch -c -n1'
 alias w3='watch -c -n3'
 alias c='mpstat 1'
-alias s='md5sum'
-alias s='strings'
+# alias s='md5sum'
+s() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: s <file>..." >&2
+        return 1
+    fi
+    md5sum "$@"
+}
+alias ss='strings'
 alias t='top -c'
 alias t10='tail -n 10'
 alias t100='tail -n 1000'
